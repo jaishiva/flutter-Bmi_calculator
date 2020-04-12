@@ -76,7 +76,7 @@ class _InputPageState extends State<InputPage> {
                       onChanged: (double newHeight){setState(() {
                       height = newHeight.round();}); }, 
                       min: 0,
-                      max: 200,
+                      max: 250,
                       divisions: null,
                       activeColor: containerActiveColorFemale,),
                   )
@@ -101,7 +101,7 @@ class _InputPageState extends State<InputPage> {
                     },
                     reduceAgeWeight: (){
                       setState(() {
-                        if(weight>0){weight--;}
+                        if(weight>1){weight--;}
                       });
                     },
                   ),
@@ -121,7 +121,7 @@ class _InputPageState extends State<InputPage> {
                     },
                     reduceAgeWeight: (){
                       setState(() {
-                        if(age>0){age--;}
+                        if(age>1){age--;}
                       });
                     },
                   ),
@@ -133,7 +133,7 @@ class _InputPageState extends State<InputPage> {
             flex: 1,
             child: GestureDetector(
               onTap: (){
-                bmi = (weight/((height/100)*(height/100))).toStringAsFixed(2);
+                setBMI();
                 Navigator.pushNamed(context, '/calculator');
               },
               child: Container(
@@ -146,7 +146,6 @@ class _InputPageState extends State<InputPage> {
           )
         ],
       ),
-
     );
   }
 }

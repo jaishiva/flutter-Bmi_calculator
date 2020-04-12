@@ -79,7 +79,13 @@ AgeWeight({this.addAgeWeight,this.reduceAgeWeight,this.unitName,this.weightage,t
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Expanded(flex:1,child: Text(unitName,style: labelStyle2,)),
+        Expanded(
+          flex:1,
+          child: Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Text(unitName,style: labelStyle2,)
+          )
+        ),
         Expanded(
           flex: 2,
           child: Row(
@@ -115,3 +121,25 @@ AgeWeight({this.addAgeWeight,this.reduceAgeWeight,this.unitName,this.weightage,t
   }
 }
 
+void setBMI(){
+  bmi = (weight/((height/100)*(height/100))).toStringAsFixed(1);
+  bmiText = 'BMI should only be calculated for age group 18-65';
+  if(double.parse(bmi)  >= 18 && double.parse(bmi) <= 24){
+    bmiCondition = 'NORMAL';
+    if(age >= 18 && age <= 65){
+      bmiText = 'Normal BMI is 18-24. Good Job';
+    }
+  }
+  else if(double.parse(bmi)  < 18){
+    bmiCondition = 'UNDER WEIGHT';
+    if(age >= 18 && age <= 65){
+      bmiText = 'Normal BMI is 18-24. EAT MORE!!';
+    }
+  }
+  else{
+    bmiCondition = 'OVER WEIGHT';
+    if(age >= 18 && age <= 65){
+      bmiText = 'Normal BMI is 18-24. EAT LESS!!';
+    }
+  }
+}
