@@ -131,10 +131,17 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             flex: 1,
+            child: GestureDetector(
+              onTap: (){
+                bmi = (weight/((height/100)*(height/100))).toStringAsFixed(2);
+                Navigator.pushNamed(context, '/calculator');
+              },
               child: Container(
-              color: bottomBarColor,
-              margin: EdgeInsets.only(top : 10),
-              height: 80,
+                child: Center(child: Text('CALCULATE',style: labelStyle2,)),
+                color: bottomBarColor,
+                margin: EdgeInsets.only(top : 10),
+                height: 80,
+              ),
             ),
           )
         ],

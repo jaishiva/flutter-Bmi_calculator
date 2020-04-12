@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 
 class MaleFemale extends StatelessWidget {
@@ -99,11 +100,11 @@ AgeWeight({this.addAgeWeight,this.reduceAgeWeight,this.unitName,this.weightage,t
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
             CircleButton(
-              icon: Icons.add,
+              icon: FontAwesomeIcons.plus,
               func: addAgeWeight
               ),
              CircleButton(
-              icon: Icons.remove,
+              icon: FontAwesomeIcons.minus,
               func: reduceAgeWeight
               ),
           ],
